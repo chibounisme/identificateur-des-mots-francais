@@ -48,6 +48,9 @@ if (!(argv.t || argv.g)) {
                     case 'determiner':
                         type = 'determinant'
                         break
+                    case 'preposition' :
+                        type = 'préposition'
+                        break
                     default:
                         type = body.def[0].pos
                         break
