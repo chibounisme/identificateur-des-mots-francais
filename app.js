@@ -1,7 +1,7 @@
 const yargs = require('yargs')
 const request = require('request')
 
-const API_KEY = "dict.1.1.20181018T105620Z.958bec8bbe90e6cf.1dd8fab21d36bc0a3a8cebc248e08ca91e0153b4";
+const API_KEY = "dict.1.1.20181018T105620Z.958bec8bbe90e6cf.1dd8fab21d36bc0a3a8cebc248e08ca91e0153b4"
 
 let url = `https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key=${API_KEY}&lang=fr-en&text=`
 
@@ -34,7 +34,7 @@ if (!(argv.t || argv.g)) {
                 console.log(`Le mot ${argv.w} n'existe pas dans le dictionnaire!`)
             else {
                 console.log(`Mot: ${argv.w}`)
-                let type;
+                let type
                 switch (body.def[0].pos) {
                     case 'adverb':
                         type = 'adverbe'
@@ -48,8 +48,11 @@ if (!(argv.t || argv.g)) {
                     case 'determiner':
                         type = 'determinant'
                         break
-                    case 'preposition' :
+                    case 'preposition':
                         type = 'préposition'
+                        break
+                    case 'verb':
+                        type = 'verbe'
                         break
                     default:
                         type = body.def[0].pos
